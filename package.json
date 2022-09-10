@@ -4,6 +4,8 @@
   "description": "Website for wudutou ecommerce, blog and etc",
   "main": "index.js",
   "scripts": {
+    "dev": "node --inspect ./src/server/index",
+    "start": "node ./src/server/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
