@@ -4,9 +4,9 @@
   "description": "Website for wudutou ecommerce, blog and etc",
   "main": "index.js",
   "scripts": {
-    "dev": "node --inspect ./src/server/index",
+    "dev": "node --inspect --trace-warnings ./src/server/index",
     "dev-brk": "node --inspect-brk ./src/server/index",
-    "dev-dbg": "NODE_DEBUG=* node --inspect ./src/server/index",
+    "dev-dbg": "NODE_DEBUG=* node --inspect-brk ./src/server/index",
     "start": "node ./src/server/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/guchanghai/wudutou/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/guchanghai/wudutou#readme"
 }
