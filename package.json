@@ -8,7 +8,8 @@
     "dev-brk": "node --inspect-brk ./src/server/index",
     "dev-dbg": "NODE_DEBUG=* node --inspect-brk ./src/server/index",
     "start": "node ./src/server/index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'build' && exit 0"
   },
   "repository": {
     "type": "git",
