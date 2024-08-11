@@ -65,9 +65,9 @@ pipeline {
                             echo "Directory does not exist"
                         } finally {
                             echo "Finally block"
-                                def htmlFiles = findFiles glob: 'packages/clio-playground/build-cache/coverage-dir/**/*.html'
+                            def htmlFiles = findFiles glob: 'packages/clio-playground/build-cache/coverage-dir/**/*.html'
                             def htmlFilesCount = htmlFiles.length
-                            boolean coverExists = coverFiles.length > 0
+                            boolean coverExists = htmlFiles.length > 0
                             echo "Found ${htmlFilesCount} HTML files there is ${coverExists ? 'coverage' : 'no coverage'}"
                         }
                     }
