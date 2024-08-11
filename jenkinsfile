@@ -40,6 +40,12 @@ pipeline {
                 // Add your test steps here
             }
         }
+        stage('Unit Test') {
+            steps {
+                echo 'Testing...'
+                // Add your test steps here
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
