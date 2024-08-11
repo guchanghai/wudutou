@@ -22,4 +22,4 @@ import java.text.SimpleDateFormat
 import java.util.regex.Matcher
 
 projectName = "wudutou"
-
+mainBranchName = "main"
