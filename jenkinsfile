@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Add your build steps here
+                echo "Branch: ${env.BRANCH_NAME}"
             }
         }
         stage('Test') {
