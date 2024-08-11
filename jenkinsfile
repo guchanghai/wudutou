@@ -47,4 +47,10 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            archiveArtifacts artifacts: '**', allowEmptyArchive: true
+        }
+    }
 }
