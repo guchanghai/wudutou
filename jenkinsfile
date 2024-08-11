@@ -65,10 +65,17 @@ pipeline {
                             echo "Directory does not exist"
                         } finally {
                             echo "Finally block"
-                            def htmlFiles = findFiles glob: 'build-cache/coverage-dir/**/*.html'
-                            def htmlFilesCount = htmlFiles.length
-                            boolean coverExists = htmlFiles.length > 0
-                            echo "Found ${htmlFilesCount} HTML files there is ${coverExists ? 'coverage' : 'no coverage'}"
+                            def fromRootDir = 'packages/clio-playground/build-cache/coverage-dir/**/*.html';
+
+                            def rootFiles = findFiles glob: fromRootDir
+                            def rootFilesCount = rootFiles.length
+                            echo "Found ${htmlFilesCount} HTML files from ${fromRootDir}"
+
+                            def relativePath = 'build-cache/coverage-dir/**/*.html';
+
+                            def relativeFiles = findFiles glob: relativePath
+                            def relativeFilesCount = relativeFiles.length
+                            echo "Found ${relativeFilesCount} HTML files from ${relativePath}"
                         }
                     }
                 }
