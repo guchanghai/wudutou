@@ -69,7 +69,7 @@ pipeline {
 
                             def rootFiles = findFiles glob: fromRootDir
                             def rootFilesCount = rootFiles.length
-                            echo "Found ${htmlFilesCount} HTML files from ${fromRootDir}"
+                            echo "Found ${rootFilesCount} HTML files from ${fromRootDir}"
 
                             def relativePath = 'build-cache/coverage-dir/**/*.html';
 
