@@ -57,6 +57,7 @@ pipeline {
     post {
         success {
             archiveArtifacts artifacts: '**', allowEmptyArchive: true
+
             publishHTML(target: [
                 reportName: 'Wudutou Report',
                 reportDir: 'public', // Directory where the report is generated
@@ -64,6 +65,7 @@ pipeline {
                 alwaysLinkToLastBuild: true,
                 keepAll: true
             ])
+
             publishHTML(target: [
                 reportName: 'Another Report',
                 reportDir: 'public', // Directory where the report is generated
@@ -72,9 +74,11 @@ pipeline {
                 keepAll: true
             ])
 
-            def htmlFiles = findFiles glob: '**/*.html'
-            def htmlFilesCount = htmlFiles.length
-            echo "Found ${htmlFilesCount} HTML files"
+            script {
+                def htmlFiles = findFiles glob: '**/*.html'
+                def htmlFilesCount = htmlFiles.length
+                echo "Found ${htmlFilesCount} HTML files"
+            }
         }
     }
 }
