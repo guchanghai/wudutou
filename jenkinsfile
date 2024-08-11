@@ -52,6 +52,28 @@ pipeline {
                 // Add your deploy steps here
             }
         }
+        stage('Publish') {
+            steps {
+                echo 'Publishing...'
+                // Add your publish steps here
+
+                script {
+                    dir('packages/clio-playground') {
+                        try {
+                            echo "Test if the directory exists"
+                        } catch (e) {
+                            echo "Directory does not exist"
+                        } finally {
+                            echo "Finally block"
+                                def htmlFiles = findFiles glob: 'packages/clio-playground/build-cache/coverage-dir/**/*.html'
+                            def htmlFilesCount = htmlFiles.length
+                            boolean coverExists = coverFiles.length > 0
+                            echo "Found ${htmlFilesCount} HTML files there is ${coverExists ? 'coverage' : 'no coverage'}"
+                        }
+                    }
+                }
+            }
+        }
     }
 
     post {
@@ -73,12 +95,6 @@ pipeline {
                 alwaysLinkToLastBuild: true,
                 keepAll: true
             ])
-
-            script {
-                def htmlFiles = findFiles glob: '**/*.html'
-                def htmlFilesCount = htmlFiles.length
-                echo "Found ${htmlFilesCount} HTML files"
-            }
         }
     }
 }
