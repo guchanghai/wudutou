@@ -57,6 +57,13 @@ pipeline {
     post {
         success {
             archiveArtifacts artifacts: '**', allowEmptyArchive: true
+            publishHTML(target: [
+                reportName: 'Wudutou Report',
+                reportDir: 'path/to/report', // Directory where the report is generated
+                reportFiles: './public/index.html', // Main report file
+                alwaysLinkToLastBuild: true,
+                keepAll: true
+            ])
         }
     }
 }
