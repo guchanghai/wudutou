@@ -64,6 +64,13 @@ pipeline {
                 alwaysLinkToLastBuild: true,
                 keepAll: true
             ])
+            publishHTML(target: [
+                reportName: 'Another Report',
+                reportDir: 'public', // Directory where the report is generated
+                reportFiles: 'index.html', // Main report file
+                alwaysLinkToLastBuild: true,
+                keepAll: true
+            ])
         }
     }
 }
