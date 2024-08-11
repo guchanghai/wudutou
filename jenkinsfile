@@ -71,6 +71,10 @@ pipeline {
                 alwaysLinkToLastBuild: true,
                 keepAll: true
             ])
+
+            def htmlFiles = findFiles glob: '**/*.html'
+            def htmlFilesCount = htmlFiles.length
+            echo "Found ${htmlFilesCount} HTML files"
         }
     }
 }
